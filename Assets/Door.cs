@@ -5,11 +5,23 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     // Start is called before the first frame update
+    private Animator _animator;
     void Start()
     {
-        this.GetComponent<Animator>().SetBool("open", true); //open door
+        _animator=GetComponent<Animator>();
     }
 
+void OnTriggerEnter(Collider other)
+{
+    
+        _animator.SetBool("open",true);
+   
+    
+}
+void OnTriggerExit(Collider other)
+{
+    _animator.SetBool("open",false);
+}
     // Update is called once per frame
     void Update()
     {
