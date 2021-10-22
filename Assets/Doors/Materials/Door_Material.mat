@@ -33,7 +33,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _BloodDissolve:
         m_Texture: {fileID: 2800000, guid: 6d5922d8e587b454eaf7d8008d5c3714, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 0.5, y: 0.1}
         m_Offset: {x: 0, y: 0}
     - _BloodFlowBump:
         m_Texture: {fileID: 2800000, guid: ee9920021a95396439b3c9114e19c931, type: 3}
