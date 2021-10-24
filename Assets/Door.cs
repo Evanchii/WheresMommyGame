@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -7,6 +6,10 @@ public class Door : MonoBehaviour
     // Start is called before the first frame update
     private Animator _animator;
     public bool open =false;
+
+    public AudioClip openDoor;
+  
+    
     void Start()
     {
         _animator=GetComponent<Animator>();
@@ -32,8 +35,10 @@ public void ChangerDoorState(){
     {
         if(open){
              _animator.SetBool("open",true);
+             GetComponent<AudioSource>().PlayOneShot(openDoor);
         }else{
             _animator.SetBool("open",false);
+            
         }
         
     }
