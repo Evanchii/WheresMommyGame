@@ -6,25 +6,35 @@ public class Door : MonoBehaviour
 {
     // Start is called before the first frame update
     private Animator _animator;
+    public bool open =false;
     void Start()
     {
         _animator=GetComponent<Animator>();
     }
 
-void OnTriggerEnter(Collider other)
-{
+public void ChangerDoorState(){
+    Debug.Log("Open/Close");
+    open =! open;
+}
+// void OnTriggerEnter(Collider other)
+// {
     
-        _animator.SetBool("open",true);
+//         _animator.SetBool("open",true);
    
     
-}
-void OnTriggerExit(Collider other)
-{
-    _animator.SetBool("open",false);
-}
+// }
+// void OnTriggerExit(Collider other)
+// {
+//     _animator.SetBool("open",false);
+// }
     // Update is called once per frame
     void Update()
     {
+        if(open){
+             _animator.SetBool("open",true);
+        }else{
+            _animator.SetBool("open",false);
+        }
         
     }
 }
