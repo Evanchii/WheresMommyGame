@@ -6,6 +6,7 @@ public class Note : MonoBehaviour
 {
 
     public Image noteImage;
+    public GameObject NoteHideBtn;
 
     public AudioClip pickupSound;
     public AudioClip putawaySound;
@@ -13,6 +14,7 @@ public class Note : MonoBehaviour
     void Start()
     {
         noteImage.enabled=false;
+        NoteHideBtn.SetActive(false);
     }
 
     // Update is called once per frame
@@ -20,9 +22,11 @@ public class Note : MonoBehaviour
 public void ShowImage(){
     noteImage.enabled = true;
     GetComponent<AudioSource>().PlayOneShot(pickupSound);
+    NoteHideBtn.SetActive(true);
 }
 public void HideImage(){
     noteImage.enabled=false;
     GetComponent<AudioSource>().PlayOneShot(putawaySound);
+     NoteHideBtn.SetActive(false);
 }
 }
