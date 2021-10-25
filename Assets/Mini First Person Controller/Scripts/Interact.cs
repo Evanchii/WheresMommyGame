@@ -29,7 +29,7 @@ public class Interact : MonoBehaviour
     {
         Ray ray = new Ray(transform.position,transform.forward);
         RaycastHit hit;
-     
+
         if(Physics.Raycast(ray,out hit,interactDistance, interactLayer)){
             Debug.Log("see");
             if(isInteracting==false){
