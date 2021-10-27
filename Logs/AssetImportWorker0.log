@@ -1,0 +1,171 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.17f1 (a4537701e4ab) revision 10769271'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 19042.1288; Version 2009; 64bit' Language: 'en' Physical Memory: 16331 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+COMMAND LINE ARGUMENTS:
+D:\Unity\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/habbo/Documents/GitHub/WheresMommy-Mobile
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+49331
+Successfully changed project path to: C:/Users/habbo/Documents/GitHub/WheresMommy-Mobile
+C:/Users/habbo/Documents/GitHub/WheresMommy-Mobile
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 64.96 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.17f1 (a4537701e4ab)
+[Subsystems] Discovering subsystems at path D:/Unity/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/habbo/Documents/GitHub/WheresMommy-Mobile/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1070 Ti (ID=0x1b82)
+    Vendor:   
+    VRAM:     8079 MB
+    Driver:   30.0.14.7196
+Initialize mono
+Mono path[0] = 'D:/Unity/Editor/Data/Managed'
+Mono path[1] = 'D:/Unity/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/Unity/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56964
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Unity/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001357 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 60.67 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.105 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1105ms)
+		BeginReloadAssembly (63ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (504ms)
+			LoadAssemblies (62ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (175ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (33ms)
+			SetupLoadedEditorAssemblies (207ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (61ms)
+				BeforeProcessingInitializeOnLoad (11ms)
+				ProcessInitializeOnLoadAttributes (93ms)
+				ProcessInitializeOnLoadMethodAttributes (36ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.006857 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.74 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.332 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1333ms)
+		BeginReloadAssembly (189ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (23ms)
+		EndReloadAssembly (1074ms)
+			LoadAssemblies (105ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (346ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (52ms)
+			SetupLoadedEditorAssemblies (463ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (74ms)
+				ProcessInitializeOnLoadAttributes (373ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (8ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.17 seconds
+Refreshing native plugins compatible for Editor in 0.72 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1937 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 90.0 MB.
+System memory in use after: 90.0 MB.
+
+Unloading 32 unused Assets to reduce memory usage. Loaded Objects now: 2371.
+Total: 3.609700 ms (FindLiveObjects: 0.241900 ms CreateObjectMapping: 0.051300 ms MarkObjects: 3.197300 ms  DeleteObjects: 0.117600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Horror Assets/Textures/Painting_Color.png
+  artifactKey: Guid(7e1199777c4e3d04ab2cb79bb1e949a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror Assets/Textures/Painting_Color.png using Guid(7e1199777c4e3d04ab2cb79bb1e949a6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ef46f515471f0e2fcc58e79a502a623') in 0.196514 seconds 
+  Import took 0.200388 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 76.927714 seconds.
+  path: Assets/Horror Assets/Creepy Picture/ezgif.com-gif-maker.png
+  artifactKey: Guid(aad61b0cacdcbbd4899002734d8fde3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror Assets/Creepy Picture/ezgif.com-gif-maker.png using Guid(aad61b0cacdcbbd4899002734d8fde3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34ad41fc558677255f7254f621749377') in 0.010846 seconds 
+  Import took 0.014426 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.119091 seconds.
+  path: Assets/Horror Assets/Creepy Picture/ezgif.com-gif-maker.png
+  artifactKey: Guid(aad61b0cacdcbbd4899002734d8fde3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror Assets/Creepy Picture/ezgif.com-gif-maker.png using Guid(aad61b0cacdcbbd4899002734d8fde3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '34ad41fc558677255f7254f621749377') in 0.004817 seconds 
+  Import took 0.007941 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 299.540050 seconds.
+  path: Assets/Horror Assets/Creepy Picture/New Material 5.mat
+  artifactKey: Guid(8550f439a471fc442940d161505f1dfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror Assets/Creepy Picture/New Material 5.mat using Guid(8550f439a471fc442940d161505f1dfe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7e96887dde0efd001508324d3f103a8c') in 0.079886 seconds 
+  Import took 0.083610 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.849219 seconds.
+  path: Assets/Horror Assets/Creepy Picture/ezgif.com-gif-maker.png
+  artifactKey: Guid(aad61b0cacdcbbd4899002734d8fde3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Horror Assets/Creepy Picture/ezgif.com-gif-maker.png using Guid(aad61b0cacdcbbd4899002734d8fde3d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f387d25c478f6c15f811424b32b89bdd') in 0.004632 seconds 
+  Import took 0.008300 seconds .
+
