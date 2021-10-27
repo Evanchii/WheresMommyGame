@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 3876d0e183013044aab5adba683217d7, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 3ff580e954baec748be55d27037b1ebe, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.008680698, g: 0.008848519, b: 0.01971401, a: 1}
+  m_IndirectSpecularColor: {r: 0.1652576, g: 0.20745316, b: 0.28524026, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9538,7 +9538,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 3.98
+  m_Intensity: 0
   m_Range: 13.46
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -48646,7 +48646,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013859883750, guid: 9f4e5dd2165039f4a878d1c1260761df, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.141
+      value: 2.2759364
       objectReference: {fileID: 0}
     - target: {fileID: 4000013859883750, guid: 9f4e5dd2165039f4a878d1c1260761df, type: 3}
       propertyPath: m_LocalScale.z
@@ -49785,7 +49785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013859883750, guid: 9f4e5dd2165039f4a878d1c1260761df, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.3994653
+      value: 2.432338
       objectReference: {fileID: 0}
     - target: {fileID: 4000013859883750, guid: 9f4e5dd2165039f4a878d1c1260761df, type: 3}
       propertyPath: m_LocalPosition.x
@@ -53709,12 +53709,27 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: eb163c462ebe9f8468ff4956e8afae96, type: 2}
     - target: {fileID: -891658111615932199, guid: 41bcfd5b40f87fe4cb5d98bd0af52c67,
         type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: c44c1d5727319a4439a7859d3c15466a, type: 2}
+    - target: {fileID: -891658111615932199, guid: 41bcfd5b40f87fe4cb5d98bd0af52c67,
+        type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: c44c1d5727319a4439a7859d3c15466a, type: 2}
+    - target: {fileID: -891658111615932199, guid: 41bcfd5b40f87fe4cb5d98bd0af52c67,
+        type: 3}
       propertyPath: m_Materials.Array.data[4]
       value: 
-      objectReference: {fileID: 2100000, guid: eb163c462ebe9f8468ff4956e8afae96, type: 2}
+      objectReference: {fileID: 2100000, guid: ec3c055afb2d7ad47a28bc565630a5ec, type: 2}
     - target: {fileID: -891658111615932199, guid: 41bcfd5b40f87fe4cb5d98bd0af52c67,
         type: 3}
       propertyPath: m_Materials.Array.data[5]
+      value: 
+      objectReference: {fileID: 2100000, guid: c44c1d5727319a4439a7859d3c15466a, type: 2}
+    - target: {fileID: -891658111615932199, guid: 41bcfd5b40f87fe4cb5d98bd0af52c67,
+        type: 3}
+      propertyPath: m_Materials.Array.data[7]
       value: 
       objectReference: {fileID: 2100000, guid: c44c1d5727319a4439a7859d3c15466a, type: 2}
     - target: {fileID: 919132149155446097, guid: 41bcfd5b40f87fe4cb5d98bd0af52c67,
@@ -53726,12 +53741,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b5f13b1dbe7bb2f47b4c16195100be94, type: 2}
+      objectReference: {fileID: 2100000, guid: 9613af92ca86fc345bf525d3c8599d85, type: 2}
     - target: {fileID: 8726837430073309731, guid: 41bcfd5b40f87fe4cb5d98bd0af52c67,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: b5f13b1dbe7bb2f47b4c16195100be94, type: 2}
+      objectReference: {fileID: 2100000, guid: 9613af92ca86fc345bf525d3c8599d85, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41bcfd5b40f87fe4cb5d98bd0af52c67, type: 3}
 --- !u!1001 &1835451758
