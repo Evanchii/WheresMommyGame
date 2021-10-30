@@ -31,7 +31,7 @@ public class Interact : MonoBehaviour
         RaycastHit hit;
 
         if(Physics.Raycast(ray,out hit,interactDistance, interactLayer)){
-            Debug.Log("see");
+            //Debug.Log("see");
             if(isInteracting==false){
 
                 if(interactIcon != null){
@@ -39,14 +39,14 @@ public class Interact : MonoBehaviour
                 }
 
                 if(TCKInput.GetAction("interact",EActionEvent.Down)){
-                    Debug.Log("interact");
+                    //Debug.Log("interact");
                     if(hit.collider.CompareTag("Door")){
-                        Debug.Log("Note");
+                        //Debug.Log("Note");
                         hit.collider.GetComponent<Door>().ChangerDoorState();
                     }
                     // else
                      if(hit.collider.CompareTag("Note")){
-                        Debug.Log("Note");
+                        //Debug.Log("Note");
                         hit.collider.GetComponent<Note>().ShowImage();
                     }
                 }

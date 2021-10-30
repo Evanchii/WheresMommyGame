@@ -18,7 +18,8 @@ public class Door : MonoBehaviour
 public void ChangerDoorState(){
     Debug.Log("Open/Close");
     open =! open;
-}
+    GetComponent<AudioSource>().PlayOneShot(openDoor);
+    }
 // void OnTriggerEnter(Collider other)
 // {
     
@@ -35,7 +36,6 @@ public void ChangerDoorState(){
     {
         if(open){
              _animator.SetBool("open",true);
-             GetComponent<AudioSource>().PlayOneShot(openDoor);
         }else{
             _animator.SetBool("open",false);
             
