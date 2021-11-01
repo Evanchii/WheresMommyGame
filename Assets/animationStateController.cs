@@ -20,20 +20,19 @@ public class animationStateController : MonoBehaviour
 
     //States
     public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
+    public bool playerInSightRange, playerInAttackRange, isOnCooldown;
 
-    /*private void Awake() 
-    {
-        player = GameObject.Find("PlayerObj").transform;
-        agent = GetComponent<NavMeshAgent>();
-    }*/
 
     private void Patrolling()
     {
         animator.SetBool("isAtk", false);
         animator.SetBool("isWalking", true);
         Debug.Log("Patrolling");
-        if (!walkPointSet) SearchWalkPoint();
+        if (!walkPointSet)
+        {
+            animator.SetBool("isWalking", false);
+            SearchWalkPoint();
+        }
 
         if (walkPointSet)
             agent.SetDestination(walkPoint);
@@ -49,7 +48,7 @@ public class animationStateController : MonoBehaviour
         float randomZ = Random.Range(-walkPointRange, walkPointRange);
         float randomX = Random.Range(-walkPointRange, walkPointRange);
 
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.z + randomZ);
+        walkPoint = new Vector3(transform.position.x + randomX, 0.1f, transform.position.z + randomZ);
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
             walkPointSet = true;
@@ -60,26 +59,26 @@ public class animationStateController : MonoBehaviour
     {
         animator.SetBool("isAtk", false);
         animator.SetBool("isWalking", true);
-        //Debug.Log("Chase");
         agent.SetDestination(player.position);
     }
 
-    private void AttackPlayer()
+    private IEnumerator AttackPlayer()
     {
+        Debug.Log("Attack");
+        isOnCooldown = true;
+        agent.SetDestination(transform.position);
         animator.SetBool("isWalking", false);
         animator.SetBool("isAtk", true);
-        //Debug.Log("Attack");
-        agent.SetDestination(transform.position);
-        transform.LookAt(player.transform.position);
-        //Debug.Log(player.transform.position.x + " " + player.position.y + " " + player.transform.position.z);
-
-        if (!alreadyAttacked)
+        AnimatorStateInfo ASI = animator.GetCurrentAnimatorStateInfo(0);
+        if (Random.Range(0, 10) > 4)
         {
-            //insert attack
-
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetAttacks);
+            Debug.Log("You DEAD!");
+            Destroy(player.gameObject);
+            //play cutscene death
         }
+
+        yield return new WaitForSeconds(5f);
+        isOnCooldown = false;
     }
 
     private void ResetAttack()
@@ -95,6 +94,7 @@ public class animationStateController : MonoBehaviour
         animator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+        isOnCooldown = false;
 
     }
 
@@ -106,6 +106,6 @@ public class animationStateController : MonoBehaviour
         Debug.Log("sight" + playerInSightRange);
         if (!playerInSightRange && !playerInAttackRange) Patrolling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInSightRange && playerInAttackRange) AttackPlayer();
+        if (playerInSightRange && playerInAttackRange && !isOnCooldown) StartCoroutine(AttackPlayer());
     }
 }
