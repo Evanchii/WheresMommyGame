@@ -7,9 +7,11 @@ TagManager:
   - Door
   - Note
   - PlayerMesh
-  - Fade
-  - btnPlay
-  - btnExit
+  - visibility1
+  - visibility2
+  - visibility3
+  - visibility4
+  - visibility5
   layers:
   - Default
   - TransparentFX

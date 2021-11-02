@@ -23,9 +23,9 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator transition()
     {
-        GameObject fade = GameObject.FindWithTag("Fade"),
-            play = GameObject.FindWithTag("btnPlay"),
-            exit = GameObject.FindWithTag("btnExit");
+        GameObject fade = GameObject.FindWithTag("visibility4"),
+            play = GameObject.FindWithTag("visibility1"),
+            exit = GameObject.FindWithTag("visibility2");
         fade.SetActive(false);
         play.SetActive(false);
         exit.SetActive(false);

@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Video;
 
 public class animationStateController : MonoBehaviour
 {
@@ -16,11 +17,10 @@ public class animationStateController : MonoBehaviour
 
     //Attacking
     public float timeBetAttacks;
-    bool alreadyAttacked;
 
     //States
     public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange, isOnCooldown;
+    public bool playerInSightRange, playerInAttackRange, isOnCooldown, isDead;
 
 
     private void Patrolling()
@@ -72,18 +72,29 @@ public class animationStateController : MonoBehaviour
         AnimatorStateInfo ASI = animator.GetCurrentAnimatorStateInfo(0);
         if (Random.Range(0, 10) > 4)
         {
+            GameObject Touchpad = GameObject.FindWithTag("visibility1"),
+                Joystick = GameObject.FindWithTag("visibility2"),
+                firebtn = GameObject.FindWithTag("visibility3"),
+                interactbtn = GameObject.FindWithTag("visibility4");
+            VideoPlayer vid = GameObject.FindWithTag("visibility5").GetComponent<VideoPlayer>();
+
+            Touchpad.SetActive(false);
+            Joystick.SetActive(false);
+            firebtn.SetActive(false);
+            interactbtn.SetActive(false);
+
             Debug.Log("You DEAD!");
-            Destroy(player.gameObject);
+            //Destroy(player.gameObject);
+
             //play cutscene death
+            //vid.gameObject.SetActive(true);
+            Debug.Log("VIDEO PLAY DONE!");
+            isDead = true;
         }
 
         yield return new WaitForSeconds(5f);
         isOnCooldown = false;
-    }
-
-    private void ResetAttack()
-    {
-        alreadyAttacked = false;
+        animator.SetBool("isAtk", false);
     }
 
 
@@ -95,6 +106,7 @@ public class animationStateController : MonoBehaviour
         player = GameObject.FindWithTag("Player").transform;
         agent = GetComponent<NavMeshAgent>();
         isOnCooldown = false;
+        isDead = false;
 
     }
 
@@ -106,6 +118,10 @@ public class animationStateController : MonoBehaviour
         Debug.Log("sight" + playerInSightRange);
         if (!playerInSightRange && !playerInAttackRange) Patrolling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInSightRange && playerInAttackRange && !isOnCooldown) StartCoroutine(AttackPlayer());
+        if (playerInSightRange && playerInAttackRange && !isOnCooldown && !isDead)
+        {
+            isOnCooldown = true;
+            StartCoroutine(AttackPlayer());
+        }
     }
 }
