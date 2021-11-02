@@ -2,13 +2,15 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class animationStateController : MonoBehaviour
 {
     Animator animator;
     public NavMeshAgent agent;
-    public Transform player;
+    public Transform player, enemy;
     public LayerMask whatIsGround, whatIsPlayer;
+    public GameObject vid;
 
     //Patrolling
     public Vector3 walkPoint;
@@ -72,24 +74,30 @@ public class animationStateController : MonoBehaviour
         AnimatorStateInfo ASI = animator.GetCurrentAnimatorStateInfo(0);
         if (Random.Range(0, 10) > 4)
         {
+            Debug.Log("Kill: SUCCESS");
             GameObject Touchpad = GameObject.FindWithTag("visibility1"),
                 Joystick = GameObject.FindWithTag("visibility2"),
                 firebtn = GameObject.FindWithTag("visibility3"),
                 interactbtn = GameObject.FindWithTag("visibility4");
-            VideoPlayer vid = GameObject.FindWithTag("visibility5").GetComponent<VideoPlayer>();
+            //VideoPlayer vid = (gameObject.GetComponentInParent<GameObject>()).gameObject.GetComponent<VideoPlayer>();
 
             Touchpad.SetActive(false);
             Joystick.SetActive(false);
             firebtn.SetActive(false);
             interactbtn.SetActive(false);
+            vid.SetActive(true);
 
-            Debug.Log("You DEAD!");
-            //Destroy(player.gameObject);
-
-            //play cutscene death
-            //vid.gameObject.SetActive(true);
-            Debug.Log("VIDEO PLAY DONE!");
             isDead = true;
+            agent.Move(new Vector3(10, -10, 10));
+            enemy.transform.position = new Vector3(10, -10, 10);
+
+            yield return new WaitForSeconds(18f);
+            Destroy(player.gameObject, 2f);
+            Debug.Log("Destroyed Vivi");
+            Debug.Log("Destroyed Player");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+
+            Debug.Log("Dead: " + isDead);
         }
 
         yield return new WaitForSeconds(5f);
@@ -102,8 +110,11 @@ public class animationStateController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        vid = GameObject.FindWithTag("visibility5");
+        vid.SetActive(false);
         animator = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player").transform;
+        enemy = GameObject.FindWithTag("Enemy").transform;
         agent = GetComponent<NavMeshAgent>();
         isOnCooldown = false;
         isDead = false;
@@ -116,8 +127,8 @@ public class animationStateController : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
         Debug.Log("sight" + playerInSightRange);
-        if (!playerInSightRange && !playerInAttackRange) Patrolling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+        //if (!playerInSightRange && !playerInAttackRange) Patrolling();
+        //if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInSightRange && playerInAttackRange && !isOnCooldown && !isDead)
         {
             isOnCooldown = true;

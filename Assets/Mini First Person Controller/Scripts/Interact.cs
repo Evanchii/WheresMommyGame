@@ -16,12 +16,17 @@ public class Interact : MonoBehaviour
 
     public bool isInteracting;
 
+    public GameObject tNote;
+    private TriggerEscape triggerNote;
+
     // Start is called before the first frame update
     void Start()
     {
         if(interactIcon != null){
             interactIcon.enabled=false;
         }
+        tNote = GameObject.FindWithTag("trigger1");
+        triggerNote = tNote.GetComponent<TriggerEscape>();
     }
 
     // Update is called once per frame
@@ -47,6 +52,17 @@ public class Interact : MonoBehaviour
                     // else
                      if(hit.collider.CompareTag("Note")){
                         //Debug.Log("Note");
+                        if (hit.collider.gameObject.name == "Note1") 
+                            triggerNote.note1 = true;
+                        if (hit.collider.gameObject.name == "Note2") 
+                            triggerNote.note2 = true;
+                        if (hit.collider.gameObject.name == "Note3") 
+                            triggerNote.note3 = true;
+                        if (hit.collider.gameObject.name == "Note4") 
+                            triggerNote.note4 = true;
+                        if (hit.collider.gameObject.name == "Note5") 
+                            triggerNote.note5 = true;
+
                         hit.collider.GetComponent<Note>().ShowImage();
                     }
                 }

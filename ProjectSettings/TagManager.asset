@@ -12,6 +12,9 @@ TagManager:
   - visibility3
   - visibility4
   - visibility5
+  - Enemy
+  - visibility6
+  - trigger1
   layers:
   - Default
   - TransparentFX
