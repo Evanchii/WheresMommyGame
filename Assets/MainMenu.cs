@@ -25,18 +25,31 @@ public class MainMenu : MonoBehaviour
     {
         GameObject fade = GameObject.FindWithTag("visibility4"),
             play = GameObject.FindWithTag("visibility1"),
-            exit = GameObject.FindWithTag("visibility2");
+            exit = GameObject.FindWithTag("visibility2"),
+            creds = GameObject.FindWithTag("visibility5");
         fade.SetActive(false);
         play.SetActive(false);
+        creds.SetActive(false);
         exit.SetActive(false);
         animator.SetTrigger("triggerA");
         yield return new WaitForSeconds(2f);
         vid.gameObject.SetActive(true);
-        Debug.Log("Video is Active: " + vid.gameObject.activeInHierarchy);
         yield return new WaitForSeconds((float)vid.length + 1f);
         fade.SetActive(true);
         vid.gameObject.SetActive(false);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void creds()
+    {
+        StartCoroutine(transCred());
+    }
+
+    IEnumerator transCred()
+    {
+        animator.SetTrigger("triggerA");
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
     public void QuitGame()

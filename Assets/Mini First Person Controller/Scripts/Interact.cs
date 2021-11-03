@@ -52,16 +52,36 @@ public class Interact : MonoBehaviour
                     // else
                      if(hit.collider.CompareTag("Note")){
                         //Debug.Log("Note");
-                        if (hit.collider.gameObject.name == "Note1") 
+                        if (hit.collider.gameObject.name == "Note1")
+                        {
+                            if (!triggerNote.note1)
+                                triggerNote.count += 1;
                             triggerNote.note1 = true;
-                        if (hit.collider.gameObject.name == "Note2") 
+                        }
+                        if (hit.collider.gameObject.name == "Note2")
+                        {
+                            if (!triggerNote.note2)
+                                triggerNote.count += 1;
                             triggerNote.note2 = true;
-                        if (hit.collider.gameObject.name == "Note3") 
+                        }
+                        if (hit.collider.gameObject.name == "Note3")
+                        {
+                            if (!triggerNote.note3)
+                                triggerNote.count += 1;
                             triggerNote.note3 = true;
-                        if (hit.collider.gameObject.name == "Note4") 
+                        }
+                        if (hit.collider.gameObject.name == "Note4")
+                        {
+                            if (!triggerNote.note4)
+                                triggerNote.count += 1;
                             triggerNote.note4 = true;
-                        if (hit.collider.gameObject.name == "Note5") 
+                        }
+                        if (hit.collider.gameObject.name == "Note5")
+                        {
+                            if (!triggerNote.note5)
+                                triggerNote.count += 1;
                             triggerNote.note5 = true;
+                        }
 
                         hit.collider.GetComponent<Note>().ShowImage();
                     }

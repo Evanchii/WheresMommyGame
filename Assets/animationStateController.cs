@@ -22,14 +22,13 @@ public class animationStateController : MonoBehaviour
 
     //States
     public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange, isOnCooldown, isDead;
+    public bool playerInSightRange, playerInAttackRange, isOnCooldown, isDead = false;
 
 
     private void Patrolling()
     {
         animator.SetBool("isAtk", false);
         animator.SetBool("isWalking", true);
-        Debug.Log("Patrolling");
         if (!walkPointSet)
         {
             animator.SetBool("isWalking", false);
@@ -37,7 +36,10 @@ public class animationStateController : MonoBehaviour
         }
 
         if (walkPointSet)
+        {
+            transform.rotation = Quaternion.LookRotation(agent.velocity, Vector3.up);
             agent.SetDestination(walkPoint);
+        }
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
@@ -54,19 +56,18 @@ public class animationStateController : MonoBehaviour
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
             walkPointSet = true;
-        Debug.Log("wps-swp: " + walkPointSet);
     }
 
     private void ChasePlayer()
     {
         animator.SetBool("isAtk", false);
         animator.SetBool("isWalking", true);
+        transform.rotation = Quaternion.LookRotation(agent.velocity, Vector3.up);
         agent.SetDestination(player.position);
     }
 
     private IEnumerator AttackPlayer()
     {
-        Debug.Log("Attack");
         isOnCooldown = true;
         agent.SetDestination(transform.position);
         animator.SetBool("isWalking", false);
@@ -74,12 +75,15 @@ public class animationStateController : MonoBehaviour
         AnimatorStateInfo ASI = animator.GetCurrentAnimatorStateInfo(0);
         if (Random.Range(0, 10) > 4)
         {
-            Debug.Log("Kill: SUCCESS");
             GameObject Touchpad = GameObject.FindWithTag("visibility1"),
                 Joystick = GameObject.FindWithTag("visibility2"),
                 firebtn = GameObject.FindWithTag("visibility3"),
                 interactbtn = GameObject.FindWithTag("visibility4");
-            //VideoPlayer vid = (gameObject.GetComponentInParent<GameObject>()).gameObject.GetComponent<VideoPlayer>();
+
+            GameObject playerMesh = GameObject.FindWithTag("PlayerMesh");
+            AudioSource bgm = playerMesh.gameObject.GetComponent<AudioSource>();
+
+            bgm.Stop();
 
             Touchpad.SetActive(false);
             Joystick.SetActive(false);
@@ -93,11 +97,7 @@ public class animationStateController : MonoBehaviour
 
             yield return new WaitForSeconds(18f);
             Destroy(player.gameObject, 2f);
-            Debug.Log("Destroyed Vivi");
-            Debug.Log("Destroyed Player");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
-
-            Debug.Log("Dead: " + isDead);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
         yield return new WaitForSeconds(5f);
@@ -124,15 +124,24 @@ public class animationStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
-        Debug.Log("sight" + playerInSightRange);
-        //if (!playerInSightRange && !playerInAttackRange) Patrolling();
-        //if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInSightRange && playerInAttackRange && !isOnCooldown && !isDead)
+        if (!isDead)
         {
-            isOnCooldown = true;
-            StartCoroutine(AttackPlayer());
+            playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
+            playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+            if (!playerInSightRange && !playerInAttackRange) Patrolling();
+            if (playerInSightRange && !playerInAttackRange) ChasePlayer();
+            if (playerInSightRange && playerInAttackRange && !isOnCooldown)
+            {
+                isOnCooldown = true;
+                StartCoroutine(AttackPlayer());
+            }
+        } else
+        {
+            animator.SetBool("isWalking", false);
+            animator.SetBool("isAtk", false);
+
+            agent.Move(new Vector3(10, -10, 10));
+            enemy.transform.position = new Vector3(10, -10, 10);
         }
     }
 }

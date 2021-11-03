@@ -23,10 +23,12 @@ public void ShowImage(){
     noteImage.enabled = true;
     GetComponent<AudioSource>().PlayOneShot(pickupSound);
     NoteHideBtn.SetActive(true);
-}
+        Time.timeScale = 0;
+    }
 public void HideImage(){
     noteImage.enabled=false;
     GetComponent<AudioSource>().PlayOneShot(putawaySound);
      NoteHideBtn.SetActive(false);
+        Time.timeScale = 1;
 }
 }

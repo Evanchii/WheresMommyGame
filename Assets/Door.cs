@@ -16,7 +16,6 @@ public class Door : MonoBehaviour
     }
 
 public void ChangerDoorState(){
-    Debug.Log("Open/Close");
     open =! open;
     GetComponent<AudioSource>().PlayOneShot(openDoor);
     }

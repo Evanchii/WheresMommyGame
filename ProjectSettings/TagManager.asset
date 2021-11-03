@@ -15,6 +15,7 @@ TagManager:
   - Enemy
   - visibility6
   - trigger1
+  - counter1
   layers:
   - Default
   - TransparentFX
